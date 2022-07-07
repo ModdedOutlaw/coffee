@@ -1,0 +1,278 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Mulish', sans-serif;
+
+
+}
+
+body {
+  background-color: #000;
+  text-align: center;
+
+  color: white;
+}
+
+#wrapper { 
+  display: flex;
+  } 
+li{ 
+  width: 100px; 
+  height: 30px; 
+  list-style: none; 
+  background-color: rgb(1, 4, 49); 
+  border-radius: 10px; 
+  margin: 5px; 
+  padding: 5px; 
+  color: white; 
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+} 
+#badge {
+   width: 20px; 
+   height: 20px; 
+   background-color: #f0ad4e; 
+   color: white; 
+   padding: 2px 2px; 
+   border-radius: 5px; 
+   margin-left: 10px; 
+   text-align: center; 
+   float: right; 
+   } 
+#items #badge { /* hides the count badge on the shopping list */ 
+  display: none; 
+} 
+#container { 
+  margin: 50px;
+} 
+
+
+.bg-img {    
+  background: url('THE jittery ape LOGO test.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size:cover;
+  
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+}
+
+
+
+#price-section {
+
+  text-align: center;
+  border-style: solid;
+  border-radius: 1em;
+  border-width: 0.2em;
+  padding: 0.5em;
+  margin: 1em;
+  font-size: 0.75em;
+
+}
+
+#nft-section:focus {
+
+  background-color: aqua;
+
+
+}
+
+span.price {
+  float: right;
+  color: grey;
+}
+
+#wax-balance {
+  display: none;
+}
+
+.logged-in #login-ui {
+  display: none;
+}
+
+#app-ui {
+  display: none;
+}
+
+.logged-in #app-ui {
+  display: block;
+}
+
+.logged-in-wcw #login-ui-wcw {
+  display: none;
+}
+
+#app-ui-wcw {
+  display: none;
+}
+
+.logged-in-wcw #app-ui-wcw {
+  display: block;
+}
+
+.submit-shipping {
+  display: none;
+}
+
+.pay-wax {
+  display: block;
+}
+
+
+.row {
+  display: -ms-flexbox;
+  /* IE10 */
+  display: flex;
+  -ms-flex-wrap: wrap;
+  /* IE10 */
+  flex-wrap: wrap;
+  margin: 0 -16px;
+}
+
+.col-25 {
+  -ms-flex: 25%;
+  /* IE10 */
+  flex: 25%;
+}
+
+.col-50 {
+  -ms-flex: 50%;
+  /* IE10 */
+  flex: 50%;
+}
+
+.col-75 {
+  -ms-flex: 75%;
+  /* IE10 */
+  flex: 75%;
+}
+
+.col-25,
+.col-50,
+.col-75 {
+  padding: 0 16px;
+}
+
+.container {
+  background-color: #f2f2f2;
+  padding: 5px 20px 15px 20px;
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+}
+
+input[type=text] {
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+label {
+  margin-bottom: 10px;
+  display: block;
+}
+
+.icon-container {
+  margin-bottom: 20px;
+  padding: 7px 0;
+  font-size: 24px;
+}
+
+
+span.price {
+  float: right;
+  color: grey;
+}
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (and change the direction - make the "cart" column go on top) */
+@media (max-width: 800px) {
+  .row {
+    flex-direction: column-reverse;
+  }
+
+  .col-25 {
+    margin-bottom: 20px;
+  }
+}
+
+#shipping-form {
+  display:block;
+}
+
+
+.center-img,
+.center-txt {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+#wrapper {
+  text-align: center;
+  background-color: #ea923e;
+  width: 300px;
+}
+
+#wax-logo {
+  background-color: #ea923e;
+}
+
+#anchor-logo {
+  background-color: rgb(54, 80, 162);
+}
+
+#loginAnchor {
+  background-color: rgb(54, 80, 162);
+}
+
+.CustomButton.btn {
+  align-items: center;
+  background-color: #ea923e;
+
+  font-family: Roboto Mono, menlo, monaco, consolas, Liberation Mono, Courier New, monospace;
+  font-size: .75rem;
+
+  justify-content: center;
+
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background-color: #ea923e;
+  border-color: #000;
+  color: #000;
+}
+
+.w-100 {
+  width: 125px !important;
+  height: 30px !important;
+}
+.w-145 {
+  width: 175px !important;
+  height: 30px !important;
+}
+.btn {
+  background-color: #ea923e;
+  border-radius: 0.25rem;
+  color: #000;
+  cursor: pointer;
+  display: inline-block;
+  text-align: center;
+  transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+  vertical-align: middle;
+}
+
+#sheetdb-form {
+  background-color: white;
+  color: #000;
+
+}
+
+#wax-coin{
+  display:block;
+}

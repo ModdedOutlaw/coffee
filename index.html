@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buy Coffee with WAX!!</title>
+    <script src="https://unpkg.com/anchor-link@3"></script>
+    <script src="https://unpkg.com/anchor-link-browser-transport@3"></script>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="./js/script.js" type="module"></script>
+    <link rel="stylesheet" href="./css/style.css" />
+
+
+    <script src='waxjs.js'></script>
+    <script src="loginWCW.js"></script>
+
+
+
+
+
+</head>
+
+
+
+<body onload="sessionStorage.clear();localStorage.clear();">
+
+
+    <div class="d-flex bd-highlight mb-3">
+        <div class="me-auto p-2 bd-highlight">
+
+            <div class="d-flex flex-column bd-highlight mb-3">
+                <div class="p-2 bd-highlight me-auto">
+                    <div id="login-ui">
+                        <button onclick="login()" class="CustomButton w-100   btn btn-primary" id="loginAnchor">
+                            <img src="anchor.png" class="center-img" height="20em" id="anchor-logo" /> LOGIN&nbsp;
+                        </button>
+                    </div>
+                </div>
+
+                <div class="p-2 bd-highlight me-auto">
+                    <div id="login-ui">
+                        <button id="login" class="CustomButton w-100   btn btn-primary" onclick="loginWCW()">
+                            <img src="wcw.png" class="center-img" width="50em" id="wax-logo" /> LOGIN
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="p-2 bd-highlight " id="wax-coin">
+            <div class="d-flex justify-content-center align-items-center">
+                <img src="waxcoin.png" width="20px" />&nbsp;<b id="account-name"></b>
+
+            </div>
+            <div class="d-flex justify-content-center align-items-center">
+                <div class="d-flex justify-content-center align-items-center">1 wax = $<span id="wax-price"></span>
+                </div>
+
+            </div>
+
+            <div class="d-flex justify-content-center align-items-center">
+                <b id="wax-balance">Wax Balance:&nbsp;</b><b id="user-balance"></b>
+            </div>
+        </div>
+
+        <div class="p-2 bd-highlight">
+
+
+            <div class="ms-auto p-2 bd-highlight" id="logout-section">
+                <div id="app-ui">
+
+                    <button onclick="logout()" class="btn">Log out</button>
+
+                    <!-- <pre id="log"></pre> -->
+                </div>
+
+
+                <div id="app-ui-wcw">
+
+                    <button onclick="logoutWCW()" class="btn">Log out</button>
+
+                    <!-- <pre id="log"></pre> -->
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <div class="d-flex flex-column bd-highlight mb-2 justify-content-center ">
+        <div class="p-2 bd-highlight">The Jittery Ape Coffee</div>
+        <div class="p-2 bd-highlight"><span id="wax-cost"></span>&nbsp;wax&nbsp;=&nbsp;$<span id="dollar-cost"></span>
+        </div>
+    </div>
+
+    <div class="d-flex flex-md-nowrap flex-wrap justify-content-center">
+
+        <div class="allProductsApp">
+            <header class="header">
+                <div class="header__icon">
+                    <button type="submit" class="CustomButton w-145 btn btn-primary">Checkout 🛒 <span id="cart_total"></span></button>
+                    <br><span id="total_wax_order"> </span><span class="header__icon--total" >0</span>
+                </div>
+            </header>
+
+            <div class="d-inline-flex p-2 bd-highlight">
+                <div class="products d-flex flex-wrap justify-content-center"></div>
+            </div>
+        </div>
+
+        <div class="shoppingCartApp">
+            <header>
+                <h2>
+                    <a class="btn" href="./index.html">Go back</a>
+                </h2>
+            </header>
+            <main class="container">
+                <section class="shopping-cart">
+                    <h2>Total price: $<span class="totalPrice">0</span></h2>
+                    <div class="cart-items">
+                        <div class="item"></div>
+                    </div>
+
+                    <div class="pay-wax" id="pay">
+
+                       
+
+                        <button type="submit" class="CustomButton w-145 btn btn-primary" id="sign"
+                            onclick=buyCoffee()>Purchase
+                            Coffee</button>
+          
+
+                    </div>
+                    <div class="d-flex flex-md-nowrap flex-wrap justify-content-center">
+
+
+                        <div class="flex-grow-1 ms-3" id="shipping-form">
+                            <div class="p-2 bd-highlight">
+                                <div class="col-75">
+                                    <div class="container">
+                                        <form action="https://sheetdb.io/api/v1/fy2pn7ncznspk" method="post"
+                                            id="sheetdb-form">
+                                            <div class="row">
+                                                <div class="col-50">
+                                                    <h3>Address of where to ship coffee...</h3>
+                                                    <label for="name"><i class="fa fa-user"></i> Full Name</label>
+                                                    <input type="text" id="fname" name="data[name]"
+                                                        placeholder="John M. Doe" required>
+
+                                                    <label for="waxaddress"><i class="fa fa-user"></i> wax
+                                                        address</label>
+                                                    <input type="text" id="wax-addr" name="data[waxaddress]"
+                                                        placeholder="yourwaxaddress" required>
+
+                                                    <label for="email"><i class="fa fa-envelope"></i> Email</label>
+                                                    <input type="text" id="email" name="data[email]"
+                                                        placeholder="john@example.com" required>
+
+                                                    <label for="address"><i class="fa fa-address-card-o"></i>Street
+                                                        Address</label>
+                                                    <input type="text" id="adr" name="data[address]"
+                                                        placeholder="542 W. 15th Street">
+
+                                                    <label for="city"><i class="fa fa-institution"></i> City</label>
+                                                    <input type="text" id="city" name="data[city]"
+                                                        placeholder="New York" required>
+
+                                                    <div class="row">
+                                                        <div class="col-25">
+
+                                                            <label for="state">State</label>
+                                                            <input type="text" id="state" name="data[state]"
+                                                                placeholder="NY" required>
+
+                                                        </div>
+                                                        <div class="col-25">
+
+                                                            <label for="zip">Zip</label>
+                                                            <input type="text" id="zip" name="data[zip]"
+                                                                placeholder="10001" required>
+
+                                                        </div>
+                                                        
+                                                    </div>
+
+                                                </div>
+
+
+                                                <div class="submit-shipping" id="ship">
+                                                    <!-- <input type="submit" value="Continue to checkout" class="btn" id="shipBtn"> -->
+
+                                                    <button type="submit" class="CustomButton w-145 btn btn-primary"
+                                                        id="shipBtn">Send
+                                                        Shipping Info</button>
+
+
+                                                </div>
+
+                                            </div>
+
+                                            <input type="hidden" id="12ozEspresso" name="data[1]">
+                                                        <input type="hidden" id="12ozJitteryBean" name="data[2]">
+                                                        <input type="hidden" id="12ozJitteryGround" name="data[3]">
+                                                        <input type="hidden" id="12ozOGBean" name="data[4]">
+                                                        <input type="hidden" id="12ozOGEspresso" name="data[5]">
+                                                        <input type="hidden" id="12ozOGGround" name="data[6]">
+
+
+                                        </form>
+
+                                        <script>
+                                            var form = document.getElementById('sheetdb-form');
+
+                                           
+
+
+                                            form.addEventListener("submit", e => {
+                                                e.preventDefault();
+
+                                                console.log("SENT FORM - transferID = " +
+                                                    sessionStorage.getItem('transferId'));
+
+
+                                                console.log(
+                                                    "---------------ORDER AMOUNTS------------------"
+                                                );
+
+                                                document.getElementById('12ozEspresso').value = sessionStorage.getItem('1');
+                                                document.getElementById('12ozJitteryBean').value = sessionStorage.getItem('2');
+                                                document.getElementById('12ozJitteryGround').value = sessionStorage.getItem('3');
+                                                document.getElementById('12ozOGBean').value = sessionStorage.getItem('4');
+                                                document.getElementById('12ozOGEspresso').value = sessionStorage.getItem('5');
+                                                document.getElementById('12ozOGGround').value = sessionStorage.getItem('6');
+                        
+
+
+
+                                                console.log("TOTAL 12ozEspresso = " + sessionStorage
+                                                    .getItem('1'));
+                                                console.log("TOTAL 12ozJitteryBean = " +
+                                                    sessionStorage.getItem('2'));
+                                                console.log("TOTAL 12ozJitteryGround = " +
+                                                    sessionStorage.getItem('3'));
+
+                                                console.log("TOTAL 12ozOGBean = " + sessionStorage
+                                                    .getItem('4'));
+                                                console.log("TOTAL 12ozOGEspresso = " +
+                                                    sessionStorage.getItem('5'));
+                                                console.log("TOTAL 12ozOGGround = " + sessionStorage
+                                                    .getItem('6'));
+
+
+
+                                                console.log(document.getElementById('fname').value);
+                                                console.log(document.getElementById('12ozEspresso').value);
+
+
+                                                fetch(form.action, {
+                                                    method: "POST",
+                                                    body: new FormData(document.getElementById(
+                                                        "sheetdb-form")),
+                                    
+                                                }).then(response => response.json()).then((html) => {
+                                                    console.log("SENT");
+                                                    console.log("SENT FORM - price_wax = " +
+                                                    sessionStorage.getItem('price_wax'));
+
+
+                                                    //sessionStorage.clear();
+
+
+
+                                                   location.href = 'orderSubmitted.html';
+                                                   
+                                                });
+                                            });
+                                        </script>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+                </section>
+            </main>
+        </div>
+    </div>
+
+
+
+
+
+    <div class="shoppingCartApp">
+        <header class="header">
+            <h2 class="header__title">
+                <a class="btn" href="./index.html">Go back</a>
+            </h2>
+        </header>
+        <main class="container">
+            <section class="shopping-cart">
+                <h2>Total price: <span class="totalPrice">0</span>$</h2>
+                <div class="cart-items">
+                    <div class="item"></div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+</body>
+
+
+</html>
