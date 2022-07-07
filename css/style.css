@@ -10,11 +10,10 @@
 
 }
 
-
-
 .shoppingCartApp {
   display: none;
 }
+
 .cartItem {
   display: flex;
   align-items: center;
